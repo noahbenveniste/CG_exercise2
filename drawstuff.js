@@ -197,13 +197,13 @@ function main() {
     var ucc = new Color(0,255,255,255); // Upper center color: cyan
     var lrc = new Color(255,255,0,255); // Lower right color: yellow
     var llc = new Color(255,0,255,255); // Lower left color: magenta
-    var ucx = 50, ucy = 50; // Upper center vertex
-    var lrx = 100, lry = 150; // Lower right vertex
-    var llx = 0, lly = 150; // Lower left vertex
+    var ucx = 50, ucy = 0; // Upper center vertex
+    var lrx = 100, lry = 100; // Lower right vertex
+    var llx = 0, lly = 100; // Lower left vertex
     
     // Draw the triangle
     for (var y = ucy; y <= lly; y++) {
-        for (var x = (50 - (y/3)); x <= (50 + (y/3)); x++) {
+        for (var x = (50 - (y/2)); x <= (50 + (y/2)); x++) {
             drawPixel(imagedata,x,y,ucc);
         }
     }
