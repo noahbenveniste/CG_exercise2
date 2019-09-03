@@ -215,7 +215,7 @@ function main() {
         // This expression was derived using the pythagorean theorem.
         var y2 = Math.floor(y^2);
         var y2Over4 = Math.floor(y2/4);
-        var s = Math.floor(Math.sqrt(y2 + y2Over4)) / Math.floor(Math.sqrt(100^2 + 50^2));
+        var s = Math.floor(Math.sqrt(y2 + y2Over4)) / Math.sqrt(100^2 + 50^2);
         console.log("s = " + s);
         // Do vertical lerp for this row
         var lc = lerp(ucc,llc,s);
