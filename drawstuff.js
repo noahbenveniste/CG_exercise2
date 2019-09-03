@@ -222,7 +222,7 @@ function main() {
             // Calculate the "slider" value to plug into horizontal lerp
             var t = 0;
             if ( y > 0 ) {
-                t = x/y; // x is the distance along the base, y is the total length of the base
+                t = (x-50-(y/2))/y; // x is the distance along the base, y is the total length of the base
             }
             console.log("t = " + t);
             // Do horizontal lerp between the two vertical lerp colors to get the color for this pixel
