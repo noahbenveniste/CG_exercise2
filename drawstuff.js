@@ -148,6 +148,10 @@ function drawPixel(imagedata,x,y,color) {
 
 /* main -- here is where execution begins after window load */
 
+function lerp(c1, c2, t) {
+    return c1 + t*(c2-c1);
+}
+
 function main() {
 
     // Get the canvas, context, and image data
@@ -203,8 +207,19 @@ function main() {
     
     // Draw the triangle
     for (var y = ucy; y <= lly; y++) {
+        // Calculate the "slider" value to plug into lerp for the left and right leg of the triangle.
+        // This expression was derived using the pythagorean theorem.
+        var s1 = Math.sqrt((y/100)^2 + (50 - (y/2))^2); // left leg
+        var s2 = Math.sqrt((y/100)^2 + (50 + (y/2))^2); // right leg
+        // Do vertical lerp for this row
+        var lc = lerp(ucc,llc,s1);
+        var rc = lerp(ucc,lrc,s2);
         for (var x = (ucx - Math.floor(y/2)); x <= (ucx + Math.floor(y/2)); x++) { // TODO: Generalize this
-            drawPixel(imagedata,x,y,new Color(0,0,0,255));
+            // Calculate the "slider" value to plug into horizontal lerp
+            var t = x/(y/100);
+            // Do horizontal lerp between the two vertical lerp colors to get the color for this pixel
+            var c = lerp(lc,rc,t);
+            drawPixel(imagedata,x,y,c);
         }
     }
     
