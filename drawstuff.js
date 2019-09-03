@@ -216,6 +216,7 @@ function main() {
         var y2 = Math.floor(y^2);
         var y2Over4 = Math.floor(y2/4);
         var s = Math.floor(Math.sqrt(y2 + y2Over4)) / Math.sqrt(100^2 + 50^2);
+        if ( s > 1 ) { s = 1; }
         console.log("s = " + s);
         // Do vertical lerp for this row
         var lc = lerp(ucc,llc,s);
