@@ -148,8 +148,12 @@ function drawPixel(imagedata,x,y,color) {
 
 /* main -- here is where execution begins after window load */
 
-function lerp(c1, c2, t) {
-    return c1 + t*(c2-c1);
+function lerp(color1, color2, t) {
+    var r = color1.r + t*(color2.r - color1.r);
+    var g = color1.g + t*(color2.g - color1.g);
+    var b = color1.b + t*(color2.b - color1.b);
+    var a = color1.a + t*(color2.a - color1.a);
+    return new Color(r,g,b,a);
 }
 
 function main() {
