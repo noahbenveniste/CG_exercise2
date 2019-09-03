@@ -203,8 +203,8 @@ function main() {
     
     // Draw the triangle
     for (var y = ucy; y <= lly; y++) {
-        for (var x = 50 - (y/3); x <= 50 + (y/3); x++) {
-            drawPixel(imagedata,x,y,new Color(0,0,0,255);
+        for (var x = (50 - (y/3)); x <= (50 + (y/3)); x++) {
+            drawPixel(imagedata,x,y,ucc);
         }
     }
     
