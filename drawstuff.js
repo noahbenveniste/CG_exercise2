@@ -220,7 +220,10 @@ function main() {
         var rc = lerp(ucc,lrc,s);
         for (var x = (ucx - Math.floor(y/2)); x <= (ucx + Math.floor(y/2)); x++) { // TODO: Generalize this
             // Calculate the "slider" value to plug into horizontal lerp
-            var t = x/y; // x is the distance along the base, y is the total length of the base
+            var t = 0;
+            if ( y > 0 ) {
+                t = x/y; // x is the distance along the base, y is the total length of the base
+            }
             console.log(t);
             // Do horizontal lerp between the two vertical lerp colors to get the color for this pixel
             var c = lerp(lc,rc,t);
