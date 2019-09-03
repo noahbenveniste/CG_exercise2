@@ -213,7 +213,7 @@ function main() {
     for (var y = ucy; y <= lly; y++) {
         // Calculate the "slider" value to plug into lerp for the left and right leg of the triangle.
         // This expression was derived using the pythagorean theorem.
-        var s = Math.sqrt(y^2 + (y/2)^2) / Math.sqrt(100^2 + 50^2);
+        var s = Math.floor(Math.sqrt(y^2 + y^2/4)) / Math.floor(Math.sqrt(100^2 + 50^2));
         // console.log("s = " + s);
         // Do vertical lerp for this row
         var lc = lerp(ucc,llc,s);
@@ -222,7 +222,8 @@ function main() {
             // Calculate the "slider" value to plug into horizontal lerp
             var t = 0;
             if ( y > 0 ) {
-                t = (x-50+(y/2))/y; // y is the total length of the base of the current sub-triangle
+                t = (x-50+(y/2))/y; // y is the total length of the base of the current sub-triangle,
+                                    // x-50+(y/2) is how far along the base we are from the left vertex
             }
             // console.log("t = " + t);
             // Do horizontal lerp between the two vertical lerp colors to get the color for this pixel
