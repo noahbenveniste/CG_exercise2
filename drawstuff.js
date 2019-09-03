@@ -213,13 +213,13 @@ function main() {
     for (var y = ucy; y <= lly; y++) {
         // Calculate the "slider" value to plug into lerp for the left and right leg of the triangle.
         // This expression was derived using the pythagorean theorem.
-        var s = Math.sqrt(y^2 + (y/2)^2);
+        var s = Math.sqrt(y^2 + (y/2)^2) / sqrt(100^2 + 50^2);
         // Do vertical lerp for this row
         var lc = lerp(ucc,llc,s);
         var rc = lerp(ucc,lrc,s);
         for (var x = (ucx - Math.floor(y/2)); x <= (ucx + Math.floor(y/2)); x++) { // TODO: Generalize this
             // Calculate the "slider" value to plug into horizontal lerp
-            var t = x/y;
+            var t = x/y; // x is the distance along the base, y is the total length of the base
             // Do horizontal lerp between the two vertical lerp colors to get the color for this pixel
             var c = lerp(lc,rc,t);
             drawPixel(imagedata,x,y,c);
