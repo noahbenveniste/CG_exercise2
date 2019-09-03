@@ -213,9 +213,7 @@ function main() {
     for (var y = ucy; y <= lly; y++) {
         // Calculate the "slider" value to plug into lerp for the left and right leg of the triangle.
         // This expression was derived using the pythagorean theorem.
-        var y2 = Math.floor(y^2);
-        var y2Over4 = Math.floor(y2/4);
-        var s = Math.floor(Math.sqrt(y2 + y2Over4)) / Math.sqrt(100^2 + 50^2);
+        var s = Math.sqrt(y*y + y*y/4))/ Math.sqrt(100*100 + 50*50);
         if ( s > 1 ) { s = 1; }
         console.log("s = " + s);
         // Do vertical lerp for this row
