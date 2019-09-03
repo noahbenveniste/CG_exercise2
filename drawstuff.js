@@ -157,6 +157,7 @@ function main() {
     var h = context.canvas.height;  // as set in html
     var imagedata = context.createImageData(w,h);
  
+    /*
     // Define a rectangle in 2D with colors and coords at corners
     var ulc = new Color(0,255,255,255); // upper left corner color: cyan
     var urc = new Color(255,0,255,255); // upper right corner color: magenta
@@ -190,6 +191,22 @@ function main() {
         lc.add(lcDelta);
         rc.add(rcDelta);
     } // end vertical
+    */
+    
+    // Define a triangle in 2D with colors and coords at corners
+    var ucc = new Color(0,255,255,255); // Upper center color: cyan
+    var lrc = new Color(255,255,0,255); // Lower right color: yellow
+    var llc = new Color(255,0,255,255); // Lower left color: magenta
+    var ucx = 50, ucy = 50; // Upper center vertex
+    var lrx = 100, lry = 150; // Lower right vertex
+    var llx = 0, lly = 150; // Lower left vertex
+    
+    // Draw the triangle
+    for (var y = ucy; y <= lly; y++) {
+        for (var x = 50 - (y/3); x <= 50 + (y/3); x++) {
+            drawPixel(imagedata,x,y,new Color(0,0,0,255);
+        }
+    }
     
     context.putImageData(imagedata, 0, 0); // display the image in the context
 }
